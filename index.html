@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="axios.min.js"></script>
+  <script src="script.js"></script>
+  <title>Currency Converter</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <p>Сумма в рублях</p>
+        <input type="number" class="rubInput">
+      </div>
+      <div class="col-4">
+        <p>Выберите валюту</p>
+        <button class="btn btn-primary currency">USD</button>
+        <button class="btn btn-primary currency">EUR</button>
+        <button class="btn btn-primary currency">GBP</button>
+        <button class="btn btn-primary currency">KRW</button>
+        <button class="btn btn-primary currency">UAH</button>
+        <button class="btn btn-primary currency">AUD</button>
+        <button class="btn btn-primary currency">JPY</button>
+        <button class="btn btn-primary currency">INR</button>
+      </div>
+      <div class="col-4">
+        <p class="title">Сумма в USD</p>
+        <input type="number" class="convertInput">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
