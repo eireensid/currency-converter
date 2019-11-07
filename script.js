@@ -1,12 +1,13 @@
 
-// axios.get('http://apilayer.net/api/live?access_key=9b1c2f459b8b8b22fb7c781dec2fade2')
-  // .then((response) => {
-    
-  //   console.log(response.data)
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // })
+var CURRENCY = null
+axios.get('http://apilayer.net/api/live?access_key=9b1c2f459b8b8b22fb7c781dec2fade2')
+  .then((response) => {
+    console.log(response.data)
+    CURRENCY = response.data.quotes
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 
 
 // Объявить переменные html элементов на самом высоком уровне, чтобы они были видны везде
@@ -39,18 +40,25 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 function changeCurrency(currencyName) {
+  if (!CURRENCY) {
+    console.error('CURRENCY not define')
+    return
+  }
   titleElem.innerHTML = "Сумма в " + currencyName
-  rubInput.value = "1"
+  const USDRUB = CURRENCY.USDRUB
+  rubInput.value = 1
   if (currencyName === 'USD') {
-    convertInput.value = "60"
+    convertInput.value = USDRUB
     rubInput.oninput = function() {
-      convertInput.value = this.value * 60
+      convertInput.value = this.value * USDRUB
     }
   }
   if (currencyName === 'EUR') {
-    convertInput.value = "70"
+    const USDEUR = CURRENCY.USDEUR
+    const EURRUB = USDRUB / USDEUR
+    convertInput.value = EURRUB
     rubInput.oninput = function() {
-      convertInput.value = this.value * 70
+      convertInput.value = this.value * EURRUB
     }
   }
 }
